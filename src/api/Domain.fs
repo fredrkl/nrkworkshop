@@ -17,3 +17,7 @@ module Domain =
     let isTittelValid (tittel: string) : bool =
         let tittelRegex = Regex(@"^[\p{L}0-9\.,-:!]{5,100}$")
         tittelRegex.IsMatch(tittel)
+
+    let isKanalValid (kanal: string) : bool =
+        let kanaelRegex = Regex(@"^NRK[12]")
+        kanaelRegex.IsMatch(kanal)

@@ -3,6 +3,7 @@ namespace NRK.Dotnetskolen
 module Domain = 
 
     open System
+    open System.Text.RegularExpressions
 
     type Sending = {
         Tittel: string
@@ -12,3 +13,7 @@ module Domain =
     }
 
     type Epg = Sending list
+
+    let isTittelValid (tittel: string) : bool =
+        let tittelRegex = Regex(@"^[\p{L}0-9\.,-:!]{5,100}$")
+        tittelRegex.IsMatch(tittel)
